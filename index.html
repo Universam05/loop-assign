@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timestable</title>
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <style>
+        main h1 {
+            font-size: 1.5rem;
+        }
+
+        
+        #result{
+            margin: 50px 100px;
+            width: 40%;
+            max-height: fit-content ;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="w-50 shadow mx-auto mt-5 p-2">
+        <div class="start d-flex mt-3">
+            <h1 class="me-5">Start from</h1>
+            <input class="form-control w-50 h-25 me-5" id="first" type="text" placeholder="from">
+        </div>
+
+        <div class="to d-flex mt-3 justify-content-space-between">
+            <h1 class="me-5">To</h1>
+            <input class="form-control w-50 h-25 me-5" id="second" type="text" placeholder="to">
+        </div>
+
+        <button class="btn btn-success mt-4 d-flex align-item-center" onclick="generate()">Generate</button>
+    </main>
+    <div id="result">
+
+    </div>
+</body>
+
+</html>
+
+
+
+<script>
+    function generate(params) {
+
+
+        let firstInput = document.getElementById('first').value
+        let secondInput = document.getElementById('second').value
+
+        if (isNaN(firstInput) || isNaN(secondInput) || firstInput > secondInput) {
+                document.getElementById('result').innerHTML = "<p>invalid number</p>";
+            }
+
+
+
+        for (let u = firstInput; u <= secondInput; u++) {
+
+            for (let i = 0; i <= 12; i++) {
+                document.getElementById('result').innerHTML = `${u} * ${i} = ${u * i}`;
+                console.log(`${u} * ${i} = ${u * i}`);
+                
+
+            }
+
+        }
+    }
+
+        
+
+    
+</script>
